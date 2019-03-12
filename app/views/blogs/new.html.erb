@@ -1,0 +1,11 @@
+<div class="contents row">
+
+  <%= form_for @article, :url => {:action => 'create' } do |f| %>
+    <div class="form-group">
+      <div class="col-lg-6">
+        <%= f.text_area :text, placeholder: "本文", class: "form-control" %>
+        <%= f.submit "送信", class: "btn" %>
+      </div>
+    </div>
+  <% end %>
+

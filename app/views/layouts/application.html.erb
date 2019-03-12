@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Miniblog</title>
+  <style type="text/css" href="./style.css"></style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+</head>
+<body>
+
+<nav class="teal">
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo">Blog</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% if user_signed_in? %>
+          <%= link_to "Signout", destroy_user_session_path, class: 'btn' %>
+          <a href="blogs/new/" class="btn">New</a>
+        <% else %>
+          <%= link_to "Signin", new_user_session_path, class: 'btn' %>
+          <%= link_to "Signup", new_user_registration_path, class: 'btn' %>
+        <% end %>
+      <ul>
+  </div>
+</nav>
+
+<div class="contents">
+  <%= yield %>
+</div>
+
+<script type="text/javascript" src="./app.js"></script>
+</body>
+</html>
